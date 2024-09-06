@@ -1,0 +1,10 @@
+sliver-styles:
+  css:
+    theme:
+      css/sliver.css: {preprocess: false}
+      //static.az.gov/sliver/css/sliver.css: { type: external, preprocess: false }
+  js:
+    js/sliver.js: {preprocess: false}
+    //static.az.gov/sliver/js/sliver.js: { type: external, preprocess: false }
+  dependencies:
+    - core/jquery

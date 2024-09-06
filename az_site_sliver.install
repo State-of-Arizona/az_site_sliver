@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function az_site_sliver_install() {
+  // Define the modules to check.
+  $modules_to_check = ['az_simple_sliver', 'az_original_sliver'];
+
+  // Get the module installer service.
+  $module_installer = \Drupal::service('module_installer');
+
+  // Iterate over the modules to check if they are enabled.
+  foreach ($modules_to_check as $module) {
+    if (\Drupal::moduleHandler()->moduleExists($module)) {
+      // Disable the module if it is enabled.
+      $module_installer->uninstall([$module]);
+    }
+  }
+
+  // Clear all caches after.
+    \Drupal::service('cache.bootstrap')->invalidateAll();
+    \Drupal::service('cache.config')->invalidateAll();
+    \Drupal::service('cache.data')->invalidateAll();
+    \Drupal::service('cache.discovery')->invalidateAll();
+    \Drupal::service('cache.render')->invalidateAll();
+}

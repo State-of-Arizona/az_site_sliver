@@ -1,0 +1,8 @@
+name: Arizona Sliver
+type: module
+description: 'Provides the template and styling of the State of Arizona mandated sliver menu.'
+core_version_requirement: ^8 || ^9
+package: State of Arizona
+version: 9.x-1.1
+libraries:
+  - az_site_sliver/sliver-styles

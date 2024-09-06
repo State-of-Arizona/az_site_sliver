@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Implements hook_page_top().
+ */
+function az_site_sliver_page_top(array &$page_top) {
+    // Check if the current path is not an admin page.
+    $current_path = \Drupal::service('path.current')->getPath();
+    $current_path_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+
+    if (strpos($current_path_alias, '/admin') !== 0) {
+        // Create a render array for the template.
+        $render_array = [
+            '#theme' => 'sliver_template',
+        ];
+
+        // Add the rendered template as the first child of <body>.
+        $page_top['az_site_sliver'] = $render_array;
+    }
+}
+/**
+ * Implements hook_page_attachments().
+ */
+function az_site_sliver_page_attachments(array &$attachments) {
+    // Check if the current path is not an admin page.
+    $current_path = \Drupal::service('path.current')->getPath();
+    $current_path_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+
+    if (strpos($current_path_alias, '/admin') !== 0) {
+        // Attach the CSS library only on non-admin pages.
+        $attachments['#attached']['library'][] = 'az_site_sliver/sliver-styles';
+    }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function az_site_sliver_theme() {
+    $path = \Drupal::service('extension.path.resolver')->getPath('module', 'az_site_sliver');
+
+    return [
+        'sliver_template' => [
+            'variables' => [],
+            'template' => 'sliver',
+            'path' => $path . '/template',
+        ],
+    ];
+}
