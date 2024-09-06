@@ -30,6 +30,10 @@ For those part of the OKTA single sign on, create a ticket for [Agency Platform 
 Arizona State Government Drupal sites may occasionally hang on to cached appearances locally to a device that is viewing the website. Verify these updates are visible through an incognito or private browser, if so then one of two things should occur if the changes need to show immediately and cannot wait until caches resolve themselves:
 1. Clear your site's cache through your host or Drupal administration panel (specifically, theming cache)
 2. Request for assistance to clear Cloudflare cache with ADOA/ASET.
+### Will you support Drupal 7 or earlier versions?
+This module will not support Drupal versions earlier than 8 as there are quite a bit of twig api changes between 7 and 8/9. We recommend that all state websites are either:
+* Part of the Agency Platform hosting service on Pantheon to be in compliance and have regular Drupal maintenance or feature updates with the state provided Drupal distribution. Our distribution will already have the Sliver module included.
+* If self-hosting, upgrade the Drupal site to Drupal 9 (if not already running Drupal 8). A Drupal 10 update for this module will be released in the near future.
 
 ## Not using Drupal? Alternative Solutions:
 View our [Agency Website/Digital Style Guide](https://showcase.az.gov/resources) found at showcase.az.gov for other methods of getting the sliver to work on your website.
