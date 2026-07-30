@@ -9,12 +9,6 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
-//Site improve
-(function() {
-  var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
-  sz.src = '//siteimproveanalytics.com/js/siteanalyze_6428.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
-})();
 
 function msg(){
   var X = document.getElementById("searchinput").value;
